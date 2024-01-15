@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class ModificacionSolicitudControllerTest {
+class ModificacionSolicitudControllerTest {
 
     @Mock
     private IModificacionSolicitudService modificacionSolicitudService;

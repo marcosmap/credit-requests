@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class AltaSolicitudServiceTest {
+class AltaSolicitudServiceTest {
 
     @Mock
     private IAltaSolicitudRepository solicitudRepository;

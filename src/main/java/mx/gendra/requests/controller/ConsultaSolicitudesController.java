@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 /**
  * Query requests controller.
  */
@@ -23,8 +21,15 @@ public class ConsultaSolicitudesController {
     /**
      * Inject service's dependency to consult the requests.
      */
-    @Autowired
     private ISolicitudesClient solicitudesClient;
+
+    /**
+     * Constructor.
+     * @param solicitudesClient client
+     */
+    public ConsultaSolicitudesController(ISolicitudesClient solicitudesClient) {
+        this.solicitudesClient = solicitudesClient;
+    }
 
     /**
      * Method to recover all the requests existing on the service.

@@ -25,13 +25,21 @@ public class AltaSolicitudService implements IAltaSolicitudService {
     /**
      * Inject repository AltaSolicitud dependency.
      */
-    @Autowired
     private IAltaSolicitudRepository altaSolicitudRepository;
     /**
      * Inject repository ALtaCliente dependency.
      */
-    @Autowired
     private IAltaClienteRepository clienteRepository;
+
+    /**
+     * Constructor for injection.
+     * @param altaSolicitudRepository IAltaSolicitudRepository
+     * @param clienteRepository IAltaClienteRepository
+     */
+    public AltaSolicitudService(IAltaSolicitudRepository altaSolicitudRepository, IAltaClienteRepository clienteRepository) {
+        this.altaSolicitudRepository = altaSolicitudRepository;
+        this.clienteRepository = clienteRepository;
+    }
 
     /**
      * This method allows the registration of a 'solicitud' and the 'client' that requested the new credit.

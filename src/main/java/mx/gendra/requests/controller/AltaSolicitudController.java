@@ -24,8 +24,15 @@ public class AltaSolicitudController {
     /**
      * Inject service's dependency to register the request.
      */
-    @Autowired
     private IAltaSolicitudService altaSolicitudService;
+
+    /**
+     * Constructor.
+     * @param altaSolicitudService service alta
+     */
+    public AltaSolicitudController(IAltaSolicitudService altaSolicitudService) {
+        this.altaSolicitudService = altaSolicitudService;
+    }
 
     /**
      * Method to save a request into the db.

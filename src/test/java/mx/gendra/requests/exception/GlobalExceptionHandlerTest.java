@@ -20,7 +20,7 @@ import java.util.Map;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class GlobalExceptionHandlerTest {
+class GlobalExceptionHandlerTest {
 
     @Mock
     private HttpMessageNotReadableException exception1;

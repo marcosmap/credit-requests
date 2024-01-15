@@ -33,23 +33,36 @@ public class ModificacionSolicitudService implements IModificacionSolicitudServi
     /**
      * Inject repository AltaSolicitud dependency.
      */
-    @Autowired
     private IAltaSolicitudRepository solicitudRepository;
     /**
      * Inject repository Estatus dependency.
      */
-    @Autowired
     private IEstatusRepository estatusRepository;
     /**
      * Inject repository Credito dependency.
      */
-    @Autowired
     private ICreditoRepository creditoRepository;
     /**
      * Inject external client dependency.
      */
-    @Autowired
     private ISolicitudesClient solicitudesClient;
+
+    /**
+     * Constructor.
+     * @param solicitudRepository IAltaSolicitudRepository
+     * @param estatusRepository IEstatusRepository
+     * @param creditoRepository ICreditoRepository
+     * @param solicitudesClient ISolicitudesClient
+     */
+    public ModificacionSolicitudService(IAltaSolicitudRepository solicitudRepository,
+                                        IEstatusRepository estatusRepository,
+                                        ICreditoRepository creditoRepository,
+                                        ISolicitudesClient solicitudesClient) {
+        this.solicitudRepository = solicitudRepository;
+        this.estatusRepository = estatusRepository;
+        this.creditoRepository = creditoRepository;
+        this.solicitudesClient = solicitudesClient;
+    }
 
     /**
      * This method allows modified the status of a request.

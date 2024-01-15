@@ -25,8 +25,15 @@ public class ModificacionSolicitudController {
     /**
      * Inject service's dependency to consult the requests.
      */
-    @Autowired
     private IModificacionSolicitudService modificacionSolicitudService;
+
+    /**
+     * Constructor.
+     * @param modificacionSolicitudService modified service
+     */
+    public ModificacionSolicitudController(IModificacionSolicitudService modificacionSolicitudService) {
+        this.modificacionSolicitudService = modificacionSolicitudService;
+    }
 
     /**
      * Method to update the status of a request.
