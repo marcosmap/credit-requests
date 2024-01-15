@@ -13,3 +13,4 @@ El proyecto ya está configurado con OpenAPI y la interfaz gráfica de Swagger p
 
 Ingresar al siguiente link después de ejecutar su aplicación o imagen docker: http://localhost:8080/swagger-ui/index.html
 
+<img width="1512" alt="Screenshot 2024-01-15 at 11 33 02 a m" src="https://github.com/marcosmap/credit-requests/assets/69769751/5299a38f-d6ed-4761-8249-f06fc12b7119">
