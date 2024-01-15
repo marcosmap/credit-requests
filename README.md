@@ -21,6 +21,9 @@ Para sonar utilicé SonarCloud, una opción de sonar en la nube, únicamente enl
 
 Link: https://sonarcloud.io/project/overview?id=marcosmap_credit-requests
 
+<img width="933" alt="Screenshot 2024-01-15 at 3 21 40 p m" src="https://github.com/marcosmap/credit-requests/assets/69769751/882a4aa1-37bc-48dc-be56-dfda86f89a25">
+
+
 ### Observaciones extra
 
 1. Se utilizó una base de datos h2 para facilitar el proceso de desarrollo por lo que si se quiere ejecutar el proyecto y validar que se guarden, modifiquen y dispersen las solicitudes ingresar al siguiente link cuando el proyecto ya se esté ejecutando: http://localhost:8080/h2-console/
