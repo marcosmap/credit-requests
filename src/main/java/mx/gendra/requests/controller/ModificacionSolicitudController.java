@@ -1,6 +1,7 @@
 package mx.gendra.requests.controller;
 
 import jakarta.validation.Valid;
+import mx.gendra.requests.constants.ResourceConstants;
 import mx.gendra.requests.model.DispersionSolicitudRequest;
 import mx.gendra.requests.model.DispersionSolicitudResponse;
 import mx.gendra.requests.model.ModificacionSolicitudRequest;
@@ -15,19 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/solicitudes")
+@RequestMapping(path = ResourceConstants.API_SOLICITUDES_PATH)
 public class ModificacionSolicitudController {
 
     @Autowired
     private IModificacionSolicitudService modificacionSolicitudService;
 
-    @PostMapping(path = "/modificacion")
+    @PostMapping(path = ResourceConstants.API_SOLICITUDES_MODIFICACION_URI)
     public ResponseEntity<ModificacionSolicitudResponse> modificaSolicitud(
             @Valid @RequestBody ModificacionSolicitudRequest request) {
         return new ResponseEntity<>(modificacionSolicitudService.modificaSolicitud(request), HttpStatus.OK);
     }
 
-    @PostMapping(path = "/dispersar")
+    @PostMapping(path = ResourceConstants.API_SOLICITUDES_DISPERSION_URI)
     public ResponseEntity<DispersionSolicitudResponse> dispersarSolicitud(
             @Valid @RequestBody DispersionSolicitudRequest request) {
         return new ResponseEntity<>(modificacionSolicitudService.dispersarSolicitud(request), HttpStatus.OK);

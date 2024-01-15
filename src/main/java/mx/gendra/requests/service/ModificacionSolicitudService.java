@@ -72,7 +72,6 @@ public class ModificacionSolicitudService implements IModificacionSolicitudServi
                                 .build()
                 )
         );
-        log.info("guarda estatus nuevo");
         // save the credit into the db
         var credito = Credito.builder()
                 .idCredito(request.getIdCredito())
