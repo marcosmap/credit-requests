@@ -5,7 +5,6 @@ import mx.gendra.requests.constants.ResourceConstants;
 import mx.gendra.requests.model.AltaSolicitudRequest;
 import mx.gendra.requests.model.AltaSolicitudResponse;
 import mx.gendra.requests.service.IAltaSolicitudService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

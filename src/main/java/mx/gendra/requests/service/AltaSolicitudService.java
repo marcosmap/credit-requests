@@ -2,19 +2,9 @@ package mx.gendra.requests.service;
 
 import mx.gendra.requests.model.AltaSolicitudRequest;
 import mx.gendra.requests.model.AltaSolicitudResponse;
-import mx.gendra.requests.model.Estatus;
-import mx.gendra.requests.model.Motivo;
 import mx.gendra.requests.repository.IAltaClienteRepository;
 import mx.gendra.requests.repository.IAltaSolicitudRepository;
-import mx.gendra.requests.repository.IEstatusRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.UUID;
 
 /**
  * Service 'Alta de solicitud' class.

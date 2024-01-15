@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Optional;
-
 import lombok.extern.slf4j.Slf4j;
 import mx.gendra.requests.client.ISolicitudesClient;
 import mx.gendra.requests.exception.DataNotFoundException;
@@ -20,7 +19,6 @@ import mx.gendra.requests.model.Solicitud;
 import mx.gendra.requests.repository.IAltaSolicitudRepository;
 import mx.gendra.requests.repository.ICreditoRepository;
 import mx.gendra.requests.repository.IEstatusRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
