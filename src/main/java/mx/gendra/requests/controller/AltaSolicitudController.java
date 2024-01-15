@@ -14,13 +14,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Request registration controller.
+ */
 @RestController
 @RequestMapping(path = ResourceConstants.API_SOLICITUDES_PATH)
 public class AltaSolicitudController {
 
+    /**
+     * Inject service's dependency to register the request.
+     */
     @Autowired
     private IAltaSolicitudService altaSolicitudService;
 
+    /**
+     * Method to save a request into the db.
+     * @param request data for create a new request
+     * @return a message with the final result of the process (success or error)
+     */
     @PostMapping(path = ResourceConstants.API_SOLICITUDES_ALTA_URI, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AltaSolicitudResponse> altaSolicitud(@Valid @RequestBody AltaSolicitudRequest request) {
         return new ResponseEntity<>(altaSolicitudService.altaSolicitud(request), HttpStatus.OK);

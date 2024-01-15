@@ -16,10 +16,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Global exception handler class.
+ */
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     * Method handles data not valid in requests.
+     * @param ex MethodArgumentNotValidException
+     * @param headers HttpHeaders
+     * @param status HttpStatusCode
+     * @param request WebRequest
+     * @return response set with the info error
+     */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
         HttpHeaders headers, HttpStatusCode status, WebRequest request) {
@@ -32,6 +43,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Method handles data not valid in requests.
+     * @param ex MethodArgumentNotValidException
+     * @param headers HttpHeaders
+     * @param status HttpStatusCode
+     * @param request WebRequest
+     * @return response set with the info error
+     */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
         HttpHeaders headers, HttpStatusCode status, WebRequest request) {
@@ -44,6 +63,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Method handles data not found on the db or external services.
+     * @param ex data not found exception
+     * @return response set with the info error
+     */
     @ExceptionHandler(DataNotFoundException.class)
     public ResponseEntity<ErrorDetailResponse> handleDataNotFoundException(DataNotFoundException ex) {
         var error = ErrorDetailResponse.builder()
@@ -55,6 +79,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Method handles data not valid on the requests.
+     * @param ex DataNotValidException exception
+     * @return response set with the info error
+     */
     @ExceptionHandler(DataNotValidException.class)
     public ResponseEntity<ErrorDetailResponse> handleDataNotValidException(DataNotValidException ex) {
         var error = ErrorDetailResponse.builder()

@@ -23,19 +23,39 @@ import mx.gendra.requests.repository.IEstatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class to generate the update for modified and dispersion a request.
+ */
 @Slf4j
 @Service
 public class ModificacionSolicitudService implements IModificacionSolicitudService {
 
+    /**
+     * Inject repository AltaSolicitud dependency.
+     */
     @Autowired
     private IAltaSolicitudRepository solicitudRepository;
+    /**
+     * Inject repository Estatus dependency.
+     */
     @Autowired
     private IEstatusRepository estatusRepository;
+    /**
+     * Inject repository Credito dependency.
+     */
     @Autowired
     private ICreditoRepository creditoRepository;
+    /**
+     * Inject external client dependency.
+     */
     @Autowired
     private ISolicitudesClient solicitudesClient;
 
+    /**
+     * This method allows modified the status of a request.
+     * @param request data of status
+     * @return a message with the final result of the process (success or error)
+     */
     @Override
     public ModificacionSolicitudResponse modificaSolicitud(ModificacionSolicitudRequest request) {
         // valida si la solicitud existe en credit-requests
@@ -54,6 +74,11 @@ public class ModificacionSolicitudService implements IModificacionSolicitudServi
                 .build();
     }
 
+    /**
+     * This method allows modified the status of a request and create a new credit for the client registered.
+     * @param request data to update the status and create the new credit
+     * @return a message with the final result of the process (success or error)
+     */
     @Override
     public DispersionSolicitudResponse dispersarSolicitud(DispersionSolicitudRequest request) {
         var idSolicitud = request.getIdSolicitud();
@@ -89,6 +114,11 @@ public class ModificacionSolicitudService implements IModificacionSolicitudServi
                 .build();
     }
 
+    /**
+     * this method validates if the request exists to update its status.
+     * @param idSolicitud request id
+     * @return the request found or an error if not
+     */
     private Optional<Solicitud> validaSiExisteSolicitud(String idSolicitud) {
         // se obtiene la solicitud
         var solicitudEncontrada = solicitudRepository.findById(idSolicitud);
@@ -101,6 +131,11 @@ public class ModificacionSolicitudService implements IModificacionSolicitudServi
         return solicitudEncontrada;
     }
 
+    /**
+     * this method validates if the request exists with an 'error' status to update it.
+     * @param idSolicitud request id
+     * @return the request found or an error if not
+     */
     private Optional<Estatus> validaSiExisteSolicitudLog(String idSolicitud) {
         // valida si contiene estatus
         var estatus = estatusRepository.findBySolicitudIdSolicitud(idSolicitud);

@@ -4,6 +4,9 @@ import java.io.Serial;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Class to manage the DataNotValid errors.
+ */
 @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
 public class DataNotValidException extends RuntimeException {
 

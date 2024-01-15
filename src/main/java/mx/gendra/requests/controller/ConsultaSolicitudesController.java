@@ -13,18 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Query requests controller.
+ */
 @RestController
 @RequestMapping(path = ResourceConstants.API_CONSULTA_PATH)
 public class ConsultaSolicitudesController {
 
+    /**
+     * Inject service's dependency to consult the requests.
+     */
     @Autowired
     private ISolicitudesClient solicitudesClient;
 
+    /**
+     * Method to recover all the requests existing on the service.
+     * @return list of requests
+     */
     @GetMapping(path = ResourceConstants.API_CONSULTA_SOLICITUD_URI)
     public ResponseEntity<SolicitudClient> getSolicitudes() {
         return new ResponseEntity<>(solicitudesClient.getAllSolicitudes(), HttpStatus.OK);
     }
 
+    /**
+     * Method to recover all the status existing on the service.
+     * @return list of statuses
+     */
     @GetMapping(path = ResourceConstants.API_CONSULTA_ESTATUS_URI)
     public ResponseEntity<EstatusClient> getEstatus() {
         return new ResponseEntity<>(solicitudesClient.getAllEstatus(), HttpStatus.OK);

@@ -16,14 +16,28 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.UUID;
 
+/**
+ * Service 'Alta de solicitud' class.
+ */
 @Service
 public class AltaSolicitudService implements IAltaSolicitudService {
 
+    /**
+     * Inject repository AltaSolicitud dependency.
+     */
     @Autowired
     private IAltaSolicitudRepository altaSolicitudRepository;
+    /**
+     * Inject repository ALtaCliente dependency.
+     */
     @Autowired
     private IAltaClienteRepository clienteRepository;
 
+    /**
+     * This method allows the registration of a 'solicitud' and the 'client' that requested the new credit.
+     * @param request data of client and request
+     * @return a message with the final result of the process (success or error)
+     */
     @Override
     public AltaSolicitudResponse altaSolicitud(AltaSolicitudRequest request) {
         // save the client
